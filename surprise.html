@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- 国内镜像，确保快速加载 -->
     <link rel="stylesheet" href="https://pyscript.cn/latest/pyscript.css" />
     <script defer src="https://pyscript.cn/latest/pyscript.js"></script>
     <style>
@@ -28,7 +27,6 @@
         from js import document, window
         import time
 
-        # 更多随机祝福文本
         texts = [
             '生日快乐！', 'Happy Birthday!', '生辰喜乐',
             '天天开心呀', '愿你常喜乐', '平安又顺遂',
@@ -36,29 +34,23 @@
             '不止今日悦', '岁岁皆无忧', '快乐每一天'
         ]
 
-        # 随机浅色背景（确保文字清晰）
         def get_random_color():
             r = random.randint(180, 255)
             g = random.randint(180, 255)
             b = random.randint(180, 255)
             return f'rgb({r}, {g}, {b})'
 
-        # 生成40个随机窗口（可调整数量）
         for i in range(40):
-            # 创建窗口元素
             div = document.createElement('div')
             div.className = 'wish-window'
-            # 随机内容与样式
             div.textContent = random.choice(texts)
             div.style.backgroundColor = get_random_color()
-            # 随机位置（适配手机/电脑屏幕）
             screen_width = window.innerWidth - 220
             screen_height = window.innerHeight - 100
             div.style.left = f'{random.randint(0, screen_width)}px'
             div.style.top = f'{random.randint(0, screen_height)}px'
-            # 添加到页面
             document.body.appendChild(div)
-            time.sleep(0.08)  # 快速生成不卡顿
+            time.sleep(0.08)
     </py-script>
 </body>
 </html>
